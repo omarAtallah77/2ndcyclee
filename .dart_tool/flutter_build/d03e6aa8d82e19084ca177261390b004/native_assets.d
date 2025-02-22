@@ -1,0 +1,1 @@
+ D:\\Omar\\recycle\\.dart_tool\\flutter_build\\d03e6aa8d82e19084ca177261390b004\\native_assets.yaml: 

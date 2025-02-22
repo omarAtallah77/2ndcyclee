@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "46449376586",
+    "project_id": "social-chat-app-b71d6",
+    "storage_bucket": "social-chat-app-b71d6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46449376586:android:25d4dd9dad16860de015b3",
+        "android_client_info": {
+          "package_name": "com.example.untitled"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ObGkpz2zEQk47_LUmVkW_StWG67CIwc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
