@@ -20,8 +20,16 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
 
+      - name: Ensure iOS Deployment Target is 13.0
+        run: |
+          sed -i '' 's/platform :ios, .*/platform :ios, "13.0"/' ios/Podfile
+
       - name: Update CocoaPods
         run: pod repo update
+
+      - name: Install CocoaPods dependencies
+        run: pod install --verbose
+        working-directory: ios
 
       - name: Build iOS release (without codesign)
         run: flutter build ios --release --no-codesign
