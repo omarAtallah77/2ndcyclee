@@ -1,8 +1,17 @@
 platform :ios, '13.0'
 
-use_frameworks!
+use_frameworks! :linkage => :static
 use_modular_headers!
 
 target 'Runner' do
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
+
+  post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        # Disable module interfaces (fixes Swift bridging headers issue)
+        config.build_settings['SWIFT_ENABLE_MODULE_INTERFACE'] = 'NO'
+      end
+    end
+  end
 end
