@@ -1,4 +1,4 @@
-name: Build iOS IPA
+name: Build iOS IPA 
 
 on:
   push:
@@ -26,12 +26,15 @@ jobs:
           cd ios
           pod install
           cd ..
-
+      
       - name: Build iOS IPA (No Codesign)
         run: flutter build ipa --no-codesign
+
+      - name: List Build Files
+        run: ls -R build/ios/
 
       - name: Upload IPA as Artifact
         uses: actions/upload-artifact@v3
         with:
           name: iOS-IPA
-          path: build/ios/ipa/*.ipa
+          path: build/ios/archive/*.ipa
