@@ -1,0 +1,37 @@
+name: Build iOS IPA
+
+on:
+  push:
+    branches:
+      - main  # Change to your main branch name
+
+jobs:
+  build-ios:
+    runs-on: macos-latest  # Use macOS runner
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 'stable'
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Set up iOS environment
+        run: |
+          cd ios
+          pod install
+          cd ..
+
+      - name: Build iOS IPA (No Codesign)
+        run: flutter build ipa --no-codesign
+
+      - name: Upload IPA as Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: iOS-IPA
+          path: build/ios/ipa/*.ipa
