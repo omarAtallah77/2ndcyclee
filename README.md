@@ -33,4 +33,4 @@
 ## 📦 Installation  
 1. Clone the repository  
    ```bash
-   git clone https://github.com/your-username/2ndCycle.git
+   https://github.com/omarAtallah77/2ndcyclee.git
